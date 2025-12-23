@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+**/.build/
+build/
+DerivedData/
+
+# Swift / SPM
+.swiftpm/
+
+# macOS
+.DS_Store
+
+# Distribution
+dist/
+*.app/

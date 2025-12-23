@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-and-publish:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Build Swift App
+        run: ./scripts/build-helper.sh
+
+      # Optional: notarization step would go here
+      # - name: Notarize App
+      #   run: ./scripts/sign-notarize.sh
+      #   env:
+      #     APPLE_ID: ${{ secrets.APPLE_ID }}
+      #     ...
+
+      - name: Publish Platform Package
+        run: |
+          cd packages/@apple-intelligence-js-sdk/darwin-arm64
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Build Wrapper Package
+        run: |
+          cd packages/apple-intelligence-js-sdk
+          npm install
+          npm run build
+
+      - name: Publish Wrapper Package
+        run: |
+          cd packages/apple-intelligence-js-sdk
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
