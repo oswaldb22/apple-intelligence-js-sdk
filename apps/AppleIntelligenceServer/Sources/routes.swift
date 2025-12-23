@@ -30,7 +30,13 @@ func routes(_ app: Application) throws {
     }
     
     // Register Chat Controller
-    let chatController = ChatController(service: MockLanguageModelService())
+    let service: LanguageModelService
+    if #available(macOS 15.1, *) {
+        service = RealLanguageModelService()
+    } else {
+        service = MockLanguageModelService()
+    }
+    let chatController = ChatController(service: service)
     try v1.register(collection: chatController)
 }
 

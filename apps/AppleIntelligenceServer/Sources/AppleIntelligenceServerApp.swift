@@ -17,6 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem!
     var app: Application!
     var serverTask: Task<Void, Error>?
+    private var currentPort: Int = 0
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Setup Menu
@@ -42,8 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func copyBaseURL() {
         let pasteboard = NSPasteboard.general
         pasteboard.clearContents()
-        // TODO: Get actual port
-        pasteboard.setString("http://127.0.0.1:0/v1", forType: .string)
+        pasteboard.setString("http://127.0.0.1:\(currentPort)/v1", forType: .string)
     }
     
     @objc @MainActor func quit() {
@@ -89,6 +89,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // Since we can't easily get it back from Vapor 4 without hacking Application, we will try to bind to a random port in range.
             port = Int.random(in: 10000...60000)
         }
+        
+        // Store selected port
+        self.currentPort = port
         
         app.http.server.configuration.port = port
         app.http.server.configuration.hostname = "127.0.0.1"
