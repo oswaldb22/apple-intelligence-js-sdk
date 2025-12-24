@@ -5,7 +5,7 @@ let package = Package(
     name: "AppleIntelligenceServer",
     defaultLocalization: "en",
     platforms: [
-        .macOS(.v14)
+       .macOS("26")
     ],
     products: [
         .executable(name: "AppleIntelligenceServer", targets: ["AppleIntelligenceServer"])

@@ -2,10 +2,11 @@ import Vapor
 
 func routes(_ app: Application) throws {
     app.get("health") { req async -> HealthResponse in
+        let aiStatus = currentAppleIntelligenceStatus()
         return HealthResponse(
             ok: true,
             server: ServerInfo(version: "1.0.0", pid: Int(getpid())),
-            appleIntelligence: AppleIntelligenceStatus(available: true, notes: []),
+            appleIntelligence: aiStatus,
             models: ["base", "permissive"]
         )
     }
@@ -31,11 +32,15 @@ func routes(_ app: Application) throws {
     
     // Register Chat Controller
     let service: LanguageModelService
-    if #available(macOS 15.1, *) {
-        service = RealLanguageModelService()
-    } else {
+    #if canImport(FoundationModels)
+        if #available(macOS 26, *) {
+            service = RealLanguageModelService()
+        } else {
+            service = MockLanguageModelService()
+        }
+    #else
         service = MockLanguageModelService()
-    }
+    #endif
     let chatController = ChatController(service: service)
     try v1.register(collection: chatController)
 }
@@ -65,4 +70,22 @@ struct ModelList: Content {
 struct ModelInfo: Content {
     var object: String = "model"
     var id: String
+}
+
+private func currentAppleIntelligenceStatus() -> AppleIntelligenceStatus {
+    #if canImport(FoundationModels)
+    if #available(macOS 26, *) {
+        return AppleIntelligenceStatus(available: true, notes: [])
+    } else {
+        return AppleIntelligenceStatus(
+            available: false,
+            notes: ["Requires macOS 26 or later to access Apple Intelligence models."]
+        )
+    }
+    #else
+    return AppleIntelligenceStatus(
+        available: false,
+        notes: ["FoundationModels framework missing. Build with Xcode 16+ on macOS 26+ and run the signed binary with generative-models entitlements."]
+    )
+    #endif
 }

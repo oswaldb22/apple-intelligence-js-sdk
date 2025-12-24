@@ -73,7 +73,7 @@ if (major >= 24) {
   console.log(`✅ macOS version compatible (Darwin ${major})`);
 } else {
   console.warn(
-    `⚠️  macOS version (Darwin ${major}) might be too old for Apple Intelligence (requires macOS 15.1+)`
+    `⚠️  macOS version (Darwin ${major}) might be too old for Apple Intelligence (requires macOS 26+)`
   );
 }
 

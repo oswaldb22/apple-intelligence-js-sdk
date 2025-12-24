@@ -63,3 +63,17 @@ cat > "$APP_BUNDLE/Contents/Info.plist" <<EOF
 EOF
 
 echo "App bundle created at $APP_BUNDLE"
+
+echo "🔐 Signing app bundle..."
+ENTITLEMENTS="apps/AppleIntelligenceServer/Entitlements.plist"
+if [ -f "$ENTITLEMENTS" ]; then
+    codesign --force --deep --sign - --entitlements "$ENTITLEMENTS" "$APP_BUNDLE"
+else
+    echo "⚠️ Warning: Entitlements file not found at $ENTITLEMENTS"
+    # Fallback to simple signing or fail? Better to fail if we know it's required.
+    # But for now, let's just warn and sign without specific entitlements if missing
+    codesign --force --deep --sign - "$APP_BUNDLE"
+fi
+
+echo "✅ Done!"
+

@@ -1,24 +1,37 @@
 {
-    "configurations": [
-        {
-            "type": "swift",
-            "request": "launch",
-            "args": [],
-            "cwd": "${workspaceFolder:apple-i-js-sdk}/apps/AppleIntelligenceServer",
-            "name": "Debug AppleIntelligenceServer (apps/AppleIntelligenceServer)",
-            "target": "AppleIntelligenceServer",
-            "configuration": "debug",
-            "preLaunchTask": "swift: Build Debug AppleIntelligenceServer (apps/AppleIntelligenceServer)"
-        },
-        {
-            "type": "swift",
-            "request": "launch",
-            "args": [],
-            "cwd": "${workspaceFolder:apple-i-js-sdk}/apps/AppleIntelligenceServer",
-            "name": "Release AppleIntelligenceServer (apps/AppleIntelligenceServer)",
-            "target": "AppleIntelligenceServer",
-            "configuration": "release",
-            "preLaunchTask": "swift: Build Release AppleIntelligenceServer (apps/AppleIntelligenceServer)"
-        }
-    ]
+  "configurations": [
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:apple-i-js-sdk}/apps/AppleIntelligenceServer",
+      "name": "Debug AppleIntelligenceServer (apps/AppleIntelligenceServer)",
+      "target": "AppleIntelligenceServer",
+      "configuration": "debug",
+      "preLaunchTask": "swift: Build Debug AppleIntelligenceServer (apps/AppleIntelligenceServer)"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug JS SDK",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder:apple-i-js-sdk}/packages/apple-intelligence-js-sdk/dist/index.js",
+      "cwd": "${workspaceFolder:apple-i-js-sdk}/packages/apple-intelligence-js-sdk",
+      "outFiles": [
+        "${workspaceFolder:apple-i-js-sdk}/packages/apple-intelligence-js-sdk/dist/**/*.js"
+      ]
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:apple-i-js-sdk}/apps/AppleIntelligenceServer",
+      "name": "Release AppleIntelligenceServer (apps/AppleIntelligenceServer)",
+      "target": "AppleIntelligenceServer",
+      "configuration": "release",
+      "preLaunchTask": "swift: Build Release AppleIntelligenceServer (apps/AppleIntelligenceServer)"
+    }
+  ]
 }

@@ -2,7 +2,7 @@
 
 Access Apple Intelligence on macOS through a standard, OpenAI-compatible JavaScript/TypeScript SDK.
 
-This library allows you to build AI-powered Node.js applications that run entirely on-device using the Foundation Models built into macOS 15.1+ on Apple Silicon.
+This library allows you to build AI-powered Node.js applications that run entirely on-device using the Foundation Models built into macOS 26+ on Apple Silicon.
 
 ## Features
 
@@ -14,7 +14,7 @@ This library allows you to build AI-powered Node.js applications that run entire
 ## Requirements
 
 - **Hardware**: Mac with Apple Silicon (M1, M2, M3, or later).
-- **OS**: macOS 15.1 (Sequoia) or later.
+- **OS**: macOS 26 (Sequoia) or later.
 - **Feature**: Apple Intelligence must be enabled in System Settings.
 
 ## Installation
