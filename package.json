@@ -6,6 +6,7 @@
     ],
     "scripts": {
         "build": "npm run build --workspaces",
+        "lint": "npm run build --workspaces",
         "test": "npm run test --workspaces",
         "start:debug": "cd apps/AppleIntelligenceServer && swift run AppleIntelligenceServer"
     }
