@@ -20,7 +20,7 @@ This library allows you to build AI-powered Node.js applications that run entire
 ## Installation
 
 ```bash
-npm install apple-intelligence-js-sdk openai
+npm install @oswaldb22/apple-intelligence-js-sdk openai
 ```
 
 The package automatically attempts to install the platform-specific binary (`@apple-intelligence-js-sdk/darwin-arm64`) as an optional dependency.

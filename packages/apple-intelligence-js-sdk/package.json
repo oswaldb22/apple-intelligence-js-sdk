@@ -1,5 +1,5 @@
 {
-  "name": "apple-intelligence-js-sdk",
+  "name": "@oswaldb22/apple-intelligence-js-sdk",
   "version": "1.0.0",
   "description": "OpenAI-compatible SDK backed by Apple Intelligence on macOS",
   "main": "dist/index.js",
@@ -15,7 +15,7 @@
     "openai": "^4.0.0"
   },
   "optionalDependencies": {
-    "@apple-intelligence-js-sdk/darwin-arm64": "1.0.0"
+    "@oswaldb22/apple-intelligence-js-sdk-darwin-arm64": "1.0.0"
   },
   "devDependencies": {
     "typescript": "^5.0.0",

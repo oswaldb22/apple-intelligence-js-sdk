@@ -31,11 +31,11 @@ let appPath = null;
 const possiblePaths = [
   path.resolve(
     __dirname,
-    "../../@apple-intelligence-js-sdk/darwin-arm64/AppleIntelligenceServer.app"
+    "../../@oswaldb22/darwin-arm64/AppleIntelligenceServer.app"
   ), // Monorepo/Dev
   path.resolve(
     __dirname,
-    "../node_modules/@apple-intelligence-js-sdk/darwin-arm64/AppleIntelligenceServer.app"
+    "../node_modules/@oswaldb22/apple-intelligence-js-sdk-darwin-arm64/AppleIntelligenceServer.app"
   ), // Prod install
 ];
 

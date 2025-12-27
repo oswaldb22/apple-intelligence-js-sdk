@@ -32,7 +32,7 @@ swift build -c release --arch arm64
 popd
 
 BIN_PATH="apps/AppleIntelligenceServer/.build/arm64-apple-macosx/release/AppleIntelligenceServer"
-APP_BUNDLE="packages/@apple-intelligence-js-sdk/darwin-arm64/AppleIntelligenceServer.app"
+APP_BUNDLE="packages/@oswaldb22/darwin-arm64/AppleIntelligenceServer.app"
 
 rm -rf "$APP_BUNDLE"
 mkdir -p "$APP_BUNDLE/Contents/MacOS"

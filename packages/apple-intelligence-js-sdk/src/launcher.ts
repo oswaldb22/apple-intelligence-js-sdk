@@ -140,7 +140,7 @@ function getAppPath(): string {
   try {
     // Try to resolve from platform package
     const pkg = require.resolve(
-      "@apple-intelligence-js-sdk/darwin-arm64/package.json"
+      "@oswaldb22/apple-intelligence-js-sdk-darwin-arm64/package.json"
     );
     const dir = path.dirname(pkg);
     return path.join(dir, "AppleIntelligenceServer.app");
