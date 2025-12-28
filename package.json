@@ -2,7 +2,8 @@
     "name": "apple-intelligence-js-sdk-monorepo",
     "private": true,
     "workspaces": [
-        "packages/*"
+        "packages/*",
+        "packages/@oswaldb22/*"
     ],
     "scripts": {
         "build": "npm run build --workspaces",
