@@ -19,11 +19,20 @@ This library allows you to build AI-powered Node.js applications that run entire
 
 ## Installation
 
+This package is published to GitHub Packages. You'll need a GitHub token with `read:packages` (and `repo` if this repo is private).
+
+Add a scoped registry and token to your npm config (global or project):
+
+```ini
+@oswaldb22:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+```
+
 ```bash
 npm install @oswaldb22/apple-intelligence-js-sdk openai
 ```
 
-The package automatically attempts to install the platform-specific binary (`@apple-intelligence-js-sdk/darwin-arm64`) as an optional dependency.
+The package automatically attempts to install the platform-specific binary (`@oswaldb22/apple-intelligence-js-sdk-darwin-arm64`) as an optional dependency.
 
 ## Usage
 
@@ -32,7 +41,7 @@ The package automatically attempts to install the platform-specific binary (`@ap
 The easiest way to get started is using the helper to create a configured OpenAI client:
 
 ```typescript
-import { createOpenAIClient } from "apple-intelligence-js-sdk";
+import { createOpenAIClient } from "@oswaldb22/apple-intelligence-js-sdk";
 
 async function main() {
   // Automatically launches the local inference server if needed
@@ -74,7 +83,7 @@ If you want more control over the lifecycle or configuration:
 import {
   ensureAppleIntelligence,
   shutdownAppleIntelligence,
-} from "apple-intelligence-js-sdk";
+} from "@oswaldb22/apple-intelligence-js-sdk";
 import OpenAI from "openai";
 
 async function main() {
@@ -136,7 +145,7 @@ To build the Swift server binary from source:
 ./scripts/build-helper.sh
 ```
 
-This will compile the Swift sources in `apps/AppleIntelligenceServer` and place the result in `packages/@apple-intelligence-js-sdk/darwin-arm64`.
+This will compile the Swift sources in `apps/AppleIntelligenceServer` and place the result in `packages/@oswaldb22/darwin-arm64`.
 
 ### Building the Wrapper
 

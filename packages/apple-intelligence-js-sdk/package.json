@@ -7,6 +7,9 @@
   "bin": {
     "apple-intelligence-doctor": "./bin/doctor.js"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build"

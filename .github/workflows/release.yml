@@ -8,6 +8,9 @@ on:
 jobs:
   build-and-publish:
     runs-on: macos-15
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v4
 
@@ -15,7 +18,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          registry-url: "https://registry.npmjs.org"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@oswaldb22"
 
       - name: Build Swift App
         run: ./scripts/build-helper.sh
@@ -29,10 +33,10 @@ jobs:
 
       - name: Publish Platform Package
         run: |
-          cd packages/@apple-intelligence-js-sdk/darwin-arm64
+          cd packages/@oswaldb22/darwin-arm64
           npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Wrapper Package
         run: |
@@ -45,4 +49,4 @@ jobs:
           cd packages/apple-intelligence-js-sdk
           npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

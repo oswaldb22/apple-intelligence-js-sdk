@@ -10,5 +10,8 @@
     ],
     "files": [
         "AppleIntelligenceServer.app"
-    ]
+    ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    }
 }

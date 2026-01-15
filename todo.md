@@ -3,7 +3,7 @@
 ## 1. Core Implementation (Essential)
 
 - [x] **Connect Real Apple Intelligence**:
-  - Switch `LanguageModelService` from `MockLanguageModelService` to a real implementation using `GenerativeFunctions` / `SystemLanguageModel` (requires macOS 15.1+ and Entitlements).
+  - Switch `LanguageModelService` from `MockLanguageModelService` to a real implementation using `GenerativeFunctions` / `SystemLanguageModel` (requires macOS 26+ and Entitlements).
   - Ensure the `.entitlements` file includes `com.apple.developer.machine-learning.generative-models` (or appropriate capability).
 - [x] **Fix Port Copying in UI**:
   - In `AppDelegate.swift`, the "Copy Base URL" menu item currently hardcodes port `0`. Update it to read the actual bound port from the started application server.
