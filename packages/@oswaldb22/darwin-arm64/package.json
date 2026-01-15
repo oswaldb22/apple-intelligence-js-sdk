@@ -1,6 +1,6 @@
 {
     "name": "@oswaldb22/apple-intelligence-js-sdk-darwin-arm64",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "description": "Apple Intelligence Server binary for macOS arm64",
     "os": [
         "darwin"

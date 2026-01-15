@@ -1,6 +1,6 @@
 {
   "name": "@oswaldb22/apple-intelligence-js-sdk",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "OpenAI-compatible SDK backed by Apple Intelligence on macOS",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
